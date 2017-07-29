@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26124.0
+MinimumVisualStudioVersion = 15.0.26124.0
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medico.Core.Entities", "Medico.Core.Entities\Medico.Core.Entities.csproj", "{1485D51F-F03E-446D-9F2C-E5C6C9F49BDF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medico.Core.Persistence", "Medico.Core.Persistence\Medico.Core.Persistence.csproj", "{C0461515-203F-4A00-A721-8A80F487CAD0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medico.Core.Webapi", "Medico.Core.Webapi\Medico.Core.Webapi.csproj", "{F526969C-9990-45AE-807F-E653AA42B1F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Medico.Core.DAL", "Medico.Core.DAL\Medico.Core.DAL.csproj", "{DC681ECA-81F6-4F94-99A2-E6252CD2F73C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
