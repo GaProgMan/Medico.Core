@@ -66,7 +66,7 @@ namespace Medico.Core.Persistence.Migrations
             modelBuilder.Entity("Medico.Core.Entities.MedicationActionTime", b =>
                 {
                     b.HasOne("Medico.Core.Entities.Medication", "Medication")
-                        .WithMany()
+                        .WithMany("MedicationActionTimes")
                         .HasForeignKey("MedicationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
