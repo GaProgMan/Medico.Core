@@ -28,22 +28,34 @@ namespace Medico.Core.Persistence.Extentions
                 if(!context.Medications.Any())
                 {
                     // Add some records
-                    context.Medications.Add(GenerateAMedication());
+                    context.Medications.AddRange(GenerateAMedication());
                     context.SaveChanges();
                 }
             }
         }
 
-        private static Medication GenerateAMedication()
+        private static ICollection<Medication> GenerateAMedication()
         {
-            return new Medication()
+            return new List<Medication>()
             {
-                HumanReadableName = "Paracetamol",
-                MedicalName = "Paracetamol",
-                PerscribedDosage = 150,
-                TimeBetweenDoses = 240,
-                MaximumNumberOfDoses = 4,
-                MedicationActive = true
+                new Medication()
+                {
+                    HumanReadableName = "Paracetamol",
+                    MedicalName = "Paracetamol",
+                    PerscribedDosage = 150,
+                    TimeBetweenDoses = 240,
+                    MaximumNumberOfDoses = 4,
+                    MedicationActive = true
+                },
+                new Medication()
+                {
+                    HumanReadableName = "Ibuprofen",
+                    MedicalName = "Ibuprofen",
+                    PerscribedDosage = 150,
+                    TimeBetweenDoses = 240,
+                    MaximumNumberOfDoses = 4,
+                    MedicationActive = false
+                }
             };
         }
     }
