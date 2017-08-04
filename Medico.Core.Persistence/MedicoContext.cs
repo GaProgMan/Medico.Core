@@ -12,7 +12,10 @@ namespace Medico.Core.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            
+            modelBuilder.Entity<MedicationActionTime>()
+                .HasOne(mat => mat.Medication)
+                .WithMany(m => m.MedicationActionTimes)
+                .HasForeignKey(mat => mat.MedicationId);
         }
 
         public override int SaveChanges()

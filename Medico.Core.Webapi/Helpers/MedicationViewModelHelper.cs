@@ -21,7 +21,7 @@ namespace Medico.Core.Webapi.Helpers
                 MedicationNoLongerActiveDate = dbModel.MedicationNoLongerActiveDate,
                 MedicationActive = dbModel.MedicationActive,
 
-                CalculatedDoseTime = dbModel.CalculatedDoseTime
+                CalculatedDoseTime = dbModel.MedicationActionTimes
                     .Select(MedicationActionTimeViewModelHelper.ConvertToViewModel).ToList(),
 
                 ActionedDoseTimes = dbModel.ActionedDoseTimes
