@@ -28,8 +28,6 @@ namespace Medico.Core.Persistence.Migrations
 
                     b.Property<string>("MedicalName");
 
-                    b.Property<bool>("MedicationActive");
-
                     b.Property<DateTime?>("MedicationNoLongerActiveDate");
 
                     b.Property<string>("Notes");
@@ -48,13 +46,13 @@ namespace Medico.Core.Persistence.Migrations
                     b.Property<int>("MedicationActionTimeId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Actioned");
-
                     b.Property<int>("MedicationId");
 
                     b.Property<string>("Notes");
 
                     b.Property<DateTime?>("TimeActioned");
+
+                    b.Property<DateTime>("TimeToAction");
 
                     b.HasKey("MedicationActionTimeId");
 

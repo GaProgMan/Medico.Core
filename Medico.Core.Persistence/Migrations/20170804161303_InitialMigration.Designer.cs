@@ -8,7 +8,7 @@ using Medico.Core.Persistence;
 namespace Medico.Core.Persistence.Migrations
 {
     [DbContext(typeof(MedicoContext))]
-    [Migration("20170728235216_InitialMigration")]
+    [Migration("20170804161303_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,8 +29,6 @@ namespace Medico.Core.Persistence.Migrations
 
                     b.Property<string>("MedicalName");
 
-                    b.Property<bool>("MedicationActive");
-
                     b.Property<DateTime?>("MedicationNoLongerActiveDate");
 
                     b.Property<string>("Notes");
@@ -49,13 +47,13 @@ namespace Medico.Core.Persistence.Migrations
                     b.Property<int>("MedicationActionTimeId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<bool>("Actioned");
-
                     b.Property<int>("MedicationId");
 
                     b.Property<string>("Notes");
 
                     b.Property<DateTime?>("TimeActioned");
+
+                    b.Property<DateTime>("TimeToAction");
 
                     b.HasKey("MedicationActionTimeId");
 
@@ -67,7 +65,7 @@ namespace Medico.Core.Persistence.Migrations
             modelBuilder.Entity("Medico.Core.Entities.MedicationActionTime", b =>
                 {
                     b.HasOne("Medico.Core.Entities.Medication", "Medication")
-                        .WithMany()
+                        .WithMany("MedicationActionTimes")
                         .HasForeignKey("MedicationId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

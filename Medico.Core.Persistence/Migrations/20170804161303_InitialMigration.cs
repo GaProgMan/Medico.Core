@@ -18,7 +18,6 @@ namespace Medico.Core.Persistence.Migrations
                     InitialDoseTime = table.Column<DateTime>(nullable: true),
                     MaximumNumberOfDoses = table.Column<int>(nullable: false),
                     MedicalName = table.Column<string>(nullable: true),
-                    MedicationActive = table.Column<bool>(nullable: false),
                     MedicationNoLongerActiveDate = table.Column<DateTime>(nullable: true),
                     Notes = table.Column<string>(nullable: true),
                     PerscribedDosage = table.Column<int>(nullable: false),
@@ -35,10 +34,10 @@ namespace Medico.Core.Persistence.Migrations
                 {
                     MedicationActionTimeId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Actioned = table.Column<bool>(nullable: false),
                     MedicationId = table.Column<int>(nullable: false),
                     Notes = table.Column<string>(nullable: true),
-                    TimeActioned = table.Column<DateTime>(nullable: true)
+                    TimeActioned = table.Column<DateTime>(nullable: true),
+                    TimeToAction = table.Column<DateTime>(nullable: false)
                 },
                 constraints: table =>
                 {
