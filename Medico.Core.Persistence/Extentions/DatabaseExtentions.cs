@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Medico.Core.Entities;
 using Microsoft.EntityFrameworkCore.Infrastructure;
@@ -36,26 +37,31 @@ namespace Medico.Core.Persistence.Extentions
 
         private static ICollection<Medication> GenerateAMedication()
         {
+            var paracetamol = new Medication()
+            {
+                HumanReadableName = "Paracetamol",
+                MedicalName = "Paracetamol",
+                PerscribedDosage = 150,
+                TimeBetweenDoses = 240,
+                MaximumNumberOfDoses = 4,
+                InitialDoseTime = DateTime.Now.Date + new TimeSpan(9, 30, 0)
+            };
+
+
+            var ibuprofen = new Medication()
+            {
+                HumanReadableName = "Ibuprofen",
+                MedicalName = "Ibuprofen",
+                PerscribedDosage = 150,
+                TimeBetweenDoses = 240,
+                MaximumNumberOfDoses = 4,
+                InitialDoseTime = DateTime.Now.Date + new TimeSpan(9, 30, 0)
+            };
+
             return new List<Medication>()
             {
-                new Medication()
-                {
-                    HumanReadableName = "Paracetamol",
-                    MedicalName = "Paracetamol",
-                    PerscribedDosage = 150,
-                    TimeBetweenDoses = 240,
-                    MaximumNumberOfDoses = 4,
-                    MedicationActive = true
-                },
-                new Medication()
-                {
-                    HumanReadableName = "Ibuprofen",
-                    MedicalName = "Ibuprofen",
-                    PerscribedDosage = 150,
-                    TimeBetweenDoses = 240,
-                    MaximumNumberOfDoses = 4,
-                    MedicationActive = false
-                }
+                paracetamol,
+                ibuprofen
             };
         }
     }
