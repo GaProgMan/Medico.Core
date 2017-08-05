@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace Medico.Core.Entities
 {
-    public class Medication : CommonProperties, IAuditable
+    public class Medication : BaseMedicoEntity, IAuditable
     {
         public Medication()
         {
@@ -37,8 +37,6 @@ namespace Medico.Core.Entities
         public DateTime? InitialDoseTime { get; set; }
         
         public DateTime? MedicationNoLongerActiveDate { get; set; }
-  
-        public bool MedicationActive { get; set; }
         
         // contains a list of calculated times
         public ICollection<MedicationActionTime> MedicationActionTimes { get; set; }
@@ -50,5 +48,9 @@ namespace Medico.Core.Entities
         [NotMapped]
         public IEnumerable<MedicationActionTime> ActionedDoseTimes
             => MedicationActionTimes.Where(cdt => cdt.Actioned);
+
+        [NotMapped]
+        public bool MedicationActive => !MedicationNoLongerActiveDate.HasValue
+            || (MedicationNoLongerActiveDate.HasValue && MedicationNoLongerActiveDate.Value < DateTime.Now);
     }
 }
